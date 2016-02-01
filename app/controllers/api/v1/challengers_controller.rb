@@ -1,4 +1,4 @@
-class Api::V1::ChallengersController < ApplicationController
+class Api::V1::ChallengersController < Api::V1::ApplicationController
 
   def index
    @challengers = Challenger.all
