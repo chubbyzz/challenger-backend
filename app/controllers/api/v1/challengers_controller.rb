@@ -7,7 +7,7 @@ class Api::V1::ChallengersController < Api::V1::ApplicationController
 
   def create
     @challenger = Challenger.new challenger_params
-    @challenger.save!
+    @challenger.save
   end
 
   def show
@@ -16,6 +16,7 @@ class Api::V1::ChallengersController < Api::V1::ApplicationController
   end
 
   def challenger_params
-    params.require(:challenger).permit(:title, :description, :duration)
+    nil
+    # params.require(:challenger).permit(:title, :description, :duration)
   end
 end
