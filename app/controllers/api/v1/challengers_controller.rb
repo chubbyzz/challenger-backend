@@ -1,6 +1,7 @@
 class Api::V1::ChallengersController < ApplicationController
   def index
    @challengers = Challenger.all
+    # render 'api/v1/challengers/index.json'
   end
 
   def create
