@@ -9,8 +9,9 @@ gem 'jbuilder'
 
 gem 'spring', :group => :development
 
-
 gem 'sqlite3'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 
 

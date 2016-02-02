@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129191636) do
+ActiveRecord::Schema.define(version: 20160202205348) do
 
   create_table "challenger_tables", force: :cascade do |t|
   end
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20160129191636) do
     t.integer  "duration",    default: 30
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "day_tables", force: :cascade do |t|
+    t.integer "day"
+    t.integer "challenger_id"
+  end
+
+  add_index "day_tables", ["challenger_id"], name: "index_day_tables_on_challenger_id"
+
+  create_table "days", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
