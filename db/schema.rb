@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160202205348) do
     t.integer  "duration",    default: 30
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "slug"
   end
 
   create_table "day_tables", force: :cascade do |t|
