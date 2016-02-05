@@ -1,8 +1,10 @@
-json.success true
-json.status 500
-json.message "record save susseffully"
+json.success @success
+if @success
+  json.message "record save susseffully"
+end
+json.status @status
 if @challenger.errors.any?
-	json.errors = @challenger.errors
+	json.errors @challenger.errors
 else
 	json.record do
 	  json.title = @challenger.title

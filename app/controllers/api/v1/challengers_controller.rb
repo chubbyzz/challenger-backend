@@ -1,13 +1,17 @@
 class Api::V1::ChallengersController < Api::V1::ApplicationController
 
   def index
-   @challengers = Challenger.all
+   @challengers = Challenger.order created_at: :desc
     # render 'api/v1/challengers/index.json'
   end
 
   def create
     @challenger = Challenger.new challenger_params
-    @challenger.save
+    @status = 500
+    if ! @success = @challenger.save
+      @status = 400
+      render status: @status;
+    end
   end
 
   def show
@@ -16,7 +20,6 @@ class Api::V1::ChallengersController < Api::V1::ApplicationController
   end
 
   def challenger_params
-    nil
-    # params.require(:challenger).permit(:title, :description, :duration)
+    params.require(:challenger).permit(:title, :description, :duration)
   end
 end
